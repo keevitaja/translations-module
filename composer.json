@@ -1,0 +1,22 @@
+{
+    "name": "keevitaja/translations-module",
+    "description": "Dynamic translations module for Pyrocms V3",
+    "license": "MIT",
+    "homepage": "https://github.com/keevitaja/translations-module",
+    "support": {
+        "issues": "https://github.com/keevitaja/translations-module/issues",
+        "source": "https://github.com/keevitaja/translations-module"
+    },
+    "authors": [
+        {
+            "name": "Tanel Tammik",
+            "email": "keevitaja@gmail.com"
+        }
+    ],
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Keevitaja\\TranslationsModule\\": "src/"
+        }
+    }
+}
