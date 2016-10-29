@@ -18,5 +18,6 @@
         "psr-4": {
             "Keevitaja\\TranslationsModule\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
