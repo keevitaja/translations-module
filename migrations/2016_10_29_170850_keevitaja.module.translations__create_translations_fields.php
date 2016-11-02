@@ -16,7 +16,7 @@ class KeevitajaModuleTranslationsCreateTranslationsFields extends Migration
         'slug' => [
             'type' => 'anomaly.field_type.slug',
             'config' => [
-                'type' => '-'
+                'type' => '_'
             ]
         ],
         'bundle' => [
