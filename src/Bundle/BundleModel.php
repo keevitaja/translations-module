@@ -6,15 +6,6 @@ use Anomaly\Streams\Platform\Model\Translations\TranslationsBundlesEntryModel;
 class BundleModel extends TranslationsBundlesEntryModel implements BundleInterface
 {
     /**
-     * Eager loading
-     *
-     * @var array
-     */
-    protected $with = [
-        'translatables'
-    ];
-
-    /**
      * Translatables relationship
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
