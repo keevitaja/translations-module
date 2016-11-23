@@ -5,12 +5,5 @@ use Anomaly\Streams\Platform\Model\Translations\TranslationsTranslatablesEntryMo
 
 class TranslatableModel extends TranslationsTranslatablesEntryModel implements TranslatableInterface
 {
-    /**
-     * Eager loading
-     *
-     * @var array
-     */
-    protected $with = [
-        'translations'
-    ];
+    
 }
