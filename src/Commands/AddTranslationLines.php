@@ -20,9 +20,11 @@ class AddTranslationLines
         $locales = config('streams::locales.enabled', []);
         $default = config('streams::locales.default');
         $container = [];
+        
+        $bundles = $bundle->all()->load('translatables', 'translatables.translations');
 
         foreach($locales as $locale) {
-            foreach ($bundle->all() as $b) {
+            foreach ($bundles as $b) {
                 foreach ($b->translatables as $t) {
                     $key = $b->slug.'.'.$t->slug;
                     $string = $t->translate($locale)->string;
