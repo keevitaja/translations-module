@@ -27,12 +27,24 @@ class AddTranslationLines
             foreach ($bundles as $b) {
                 foreach ($b->translatables as $t) {
                     $key = $b->slug.'.'.$t->slug;
-                    $string = $t->translate($locale)->string;
+                    // $string = $t->translate($locale)->string;
 
-                    if ( ! empty(trim($string))) {
-                        $container[$locale][$key] = $string;
+                    // if ( ! empty(trim($string))) {
+                    //     $container[$locale][$key] = $string;
+                    // } else {
+                    //     $container[$locale][$key] = $t->translate($default)->string;
+                    // }
+                    
+                    $translated = $t->translate($locale);
+
+                    if (isset($translated->string)) {
+                        $container[$locale][$key] = $translated->string;
                     } else {
-                        $container[$locale][$key] = $t->translate($default)->string;
+                        $translated = $t->translate($default);
+
+                        if (isset($translated->string)) {
+                            $container[$locale][$key] = $translated->string;
+                        }
                     }
                 }
             }
