@@ -27,10 +27,7 @@ class KeevitajaModuleTranslationsCreateBundlesStream extends Migration
             'required' => true
         ],
         'slug' => [
-            'required' => true,
-            'config' => [
-                'slugify' => 'name'
-            ]
+            'required' => true
         ]
     ];
 
