@@ -29,10 +29,7 @@ class KeevitajaModuleTranslationsCreateTranslatablesStream extends Migration
             'translatable' => true
         ],
         'slug' => [
-            'required' => true,
-            'config' => [
-                'slugify' => 'string'
-            ]
+            'required' => true
         ],
         'bundle' => [
             'required' => true
