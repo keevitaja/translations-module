@@ -13,12 +13,7 @@ class KeevitajaModuleTranslationsCreateTranslationsFields extends Migration
     protected $fields = [
         'string' => 'anomaly.field_type.text',
         'name' => 'anomaly.field_type.text',
-        'slug' => [
-            'type' => 'anomaly.field_type.slug',
-            'config' => [
-                'type' => '_'
-            ]
-        ],
+        'slug' => 'anomaly.field_type.text',
         'bundle' => [
             'type'   => 'anomaly.field_type.relationship',
             'config' => [
