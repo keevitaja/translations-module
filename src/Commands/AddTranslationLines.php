@@ -13,27 +13,24 @@ class AddTranslationLines
      * @param \Keevitaja\TranslationsModule\Bundle\Contract\BundleRepositoryInterface $bundle
      * @param \Illuminate\Translation\Translator $translator
      *
-     * @return [type]
+     * @return void
      */
     public function handle(BundleRepositoryInterface $bundle, Translator $translator)
     {
         $locales = config('streams::locales.enabled', []);
         $default = config('streams::locales.default');
         $container = [];
+
+        $cacheExpires = config('keevitaja.module.translations::configuration.cache_expires');
         
-        $bundles = $bundle->all()->load('translatables', 'translatables.translations');
+        $bundles = cache()->remember('keevitaja.translations', $cacheExpires, function() use($bundle) {
+            return $bundle->all()->load('translatables', 'translatables.translations');
+        });
 
         foreach($locales as $locale) {
             foreach ($bundles as $b) {
                 foreach ($b->translatables as $t) {
                     $key = $b->slug.'.'.$t->slug;
-                    // $string = $t->translate($locale)->string;
-
-                    // if ( ! empty(trim($string))) {
-                    //     $container[$locale][$key] = $string;
-                    // } else {
-                    //     $container[$locale][$key] = $t->translate($default)->string;
-                    // }
                     
                     $translated = $t->translate($locale);
 

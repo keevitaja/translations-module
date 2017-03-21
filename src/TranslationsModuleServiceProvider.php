@@ -41,11 +41,7 @@ class TranslationsModuleServiceProvider extends AddonServiceProvider
             'Keevitaja\TranslationsModule\Bundle\BundleRepository'
     ];
 
-    /**
-     * Boot translations
-     */
-    public function boot()
-    {
-        $this->dispatch(new AddTranslationLines);
-    }
+    protected $middleware = [
+        'Keevitaja\TranslationsModule\Http\Middleware\LoadTranslations'
+    ];
 }
