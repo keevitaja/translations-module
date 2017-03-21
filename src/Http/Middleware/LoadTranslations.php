@@ -10,7 +10,7 @@ class LoadTranslations
 {
     public function handle(Request $request, Closure $next)
     {
-        if ( ! auth()->user()->translator) dispatch(new AddTranslationLines);
+        if ( ! auth()->check() || ! auth()->user()->translator) dispatch(new AddTranslationLines);
 
         return $next($request);
     }
